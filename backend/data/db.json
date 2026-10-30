@@ -1,0 +1,413 @@
+{
+  "ingredients": [
+    { "id": "ing_001", "name": "Tomate", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.0045, "stock": 6000, "threshold": 2000, "supplier": "Ferme du Lac" },
+    { "id": "ing_002", "name": "Oignon jaune", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.0022, "stock": 8000, "threshold": 3000, "supplier": "Ferme du Lac" },
+    { "id": "ing_003", "name": "Ail", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.012, "stock": 400, "threshold": 150, "supplier": "Ferme du Lac" },
+    { "id": "ing_004", "name": "Laitue romaine", "category": "Légumes et fruits", "unit": "unité", "costPerUnit": 2.49, "stock": 12, "threshold": 6, "supplier": "Ferme du Lac" },
+    { "id": "ing_005", "name": "Pomme de terre", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.002, "stock": 15000, "threshold": 5000, "supplier": "Ferme du Lac" },
+    { "id": "ing_006", "name": "Champignon blanc", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.009, "stock": 1500, "threshold": 2000, "supplier": "Ferme du Lac" },
+    { "id": "ing_007", "name": "Citron", "category": "Légumes et fruits", "unit": "unité", "costPerUnit": 0.75, "stock": 18, "threshold": 10, "supplier": "Ferme du Lac" },
+    { "id": "ing_008", "name": "Basilic frais", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.045, "stock": 60, "threshold": 100, "supplier": "Ferme du Lac" },
+    { "id": "ing_009", "name": "Carotte", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.0018, "stock": 7000, "threshold": 2500, "supplier": "Ferme du Lac" },
+    { "id": "ing_010", "name": "Épinards", "category": "Légumes et fruits", "unit": "g", "costPerUnit": 0.009, "stock": 2200, "threshold": 1000, "supplier": "Ferme du Lac" },
+    { "id": "ing_011", "name": "Poitrine de poulet", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.011, "stock": 9000, "threshold": 4000, "supplier": "Boucherie des Laurentides" },
+    { "id": "ing_012", "name": "Cuisses de poulet", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.0085, "stock": 5000, "threshold": 3000, "supplier": "Boucherie des Laurentides" },
+    { "id": "ing_013", "name": "Boeuf haché maigre", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.013, "stock": 12000, "threshold": 5000, "supplier": "Boucherie des Laurentides" },
+    { "id": "ing_014", "name": "Bavette de boeuf", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.035, "stock": 6000, "threshold": 3000, "supplier": "Boucherie des Laurentides" },
+    { "id": "ing_015", "name": "Filet de saumon", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.03, "stock": 5500, "threshold": 2500, "supplier": "Poissonnerie du Port" },
+    { "id": "ing_016", "name": "Bacon", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.016, "stock": 3500, "threshold": 1500, "supplier": "Boucherie des Laurentides" },
+    { "id": "ing_017", "name": "Crevettes", "category": "Viandes et poissons", "unit": "g", "costPerUnit": 0.028, "stock": 1800, "threshold": 2000, "supplier": "Poissonnerie du Port" },
+    { "id": "ing_018", "name": "Lait 3,25 %", "category": "Produits laitiers et œufs", "unit": "ml", "costPerUnit": 0.0017, "stock": 20000, "threshold": 8000, "supplier": "Laiterie Rideau" },
+    { "id": "ing_019", "name": "Crème 35 %", "category": "Produits laitiers et œufs", "unit": "ml", "costPerUnit": 0.0055, "stock": 9000, "threshold": 3000, "supplier": "Laiterie Rideau" },
+    { "id": "ing_020", "name": "Beurre", "category": "Produits laitiers et œufs", "unit": "g", "costPerUnit": 0.01, "stock": 5000, "threshold": 2000, "supplier": "Laiterie Rideau" },
+    { "id": "ing_021", "name": "Parmesan râpé", "category": "Produits laitiers et œufs", "unit": "g", "costPerUnit": 0.028, "stock": 2500, "threshold": 1000, "supplier": "Laiterie Rideau" },
+    { "id": "ing_022", "name": "Mozzarella", "category": "Produits laitiers et œufs", "unit": "g", "costPerUnit": 0.014, "stock": 6000, "threshold": 2500, "supplier": "Laiterie Rideau" },
+    { "id": "ing_023", "name": "Cheddar", "category": "Produits laitiers et œufs", "unit": "g", "costPerUnit": 0.013, "stock": 3000, "threshold": 1000, "supplier": "Laiterie Rideau" },
+    { "id": "ing_024", "name": "Mascarpone", "category": "Produits laitiers et œufs", "unit": "g", "costPerUnit": 0.018, "stock": 400, "threshold": 500, "supplier": "Laiterie Rideau" },
+    { "id": "ing_025", "name": "Oeufs", "category": "Produits laitiers et œufs", "unit": "unité", "costPerUnit": 0.4, "stock": 90, "threshold": 36, "supplier": "Laiterie Rideau" },
+    { "id": "ing_026", "name": "Farine tout usage", "category": "Épicerie", "unit": "g", "costPerUnit": 0.0018, "stock": 25000, "threshold": 8000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_027", "name": "Spaghetti", "category": "Épicerie", "unit": "g", "costPerUnit": 0.003, "stock": 14000, "threshold": 5000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_028", "name": "Riz arborio", "category": "Épicerie", "unit": "g", "costPerUnit": 0.006, "stock": 8000, "threshold": 3000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_029", "name": "Sucre", "category": "Épicerie", "unit": "g", "costPerUnit": 0.0016, "stock": 15000, "threshold": 5000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_030", "name": "Chocolat noir", "category": "Épicerie", "unit": "g", "costPerUnit": 0.022, "stock": 3500, "threshold": 1500, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_031", "name": "Biscuits boudoirs", "category": "Épicerie", "unit": "g", "costPerUnit": 0.012, "stock": 0, "threshold": 300, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_032", "name": "Huile d'olive", "category": "Épicerie", "unit": "ml", "costPerUnit": 0.012, "stock": 6000, "threshold": 2000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_033", "name": "Vin blanc de cuisine", "category": "Épicerie", "unit": "ml", "costPerUnit": 0.006, "stock": 1200, "threshold": 500, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_034", "name": "Bouillon de poulet", "category": "Épicerie", "unit": "ml", "costPerUnit": 0.002, "stock": 15000, "threshold": 5000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_035", "name": "Sauce tomate", "category": "Épicerie", "unit": "ml", "costPerUnit": 0.003, "stock": 10000, "threshold": 4000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_036", "name": "Sel fin", "category": "Épicerie", "unit": "g", "costPerUnit": 0.0015, "stock": 3000, "threshold": 1000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_037", "name": "Poivre noir", "category": "Épicerie", "unit": "g", "costPerUnit": 0.045, "stock": 400, "threshold": 100, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_038", "name": "Café en grains", "category": "Épicerie", "unit": "g", "costPerUnit": 0.03, "stock": 3000, "threshold": 1000, "supplier": "Grossiste Gatineau" },
+    { "id": "ing_039", "name": "Pain à burger", "category": "Boulangerie", "unit": "unité", "costPerUnit": 0.65, "stock": 40, "threshold": 20, "supplier": "Boulangerie Saint-Louis" },
+    { "id": "ing_040", "name": "Baguette", "category": "Boulangerie", "unit": "unité", "costPerUnit": 1.2, "stock": 14, "threshold": 8, "supplier": "Boulangerie Saint-Louis" },
+    { "id": "ing_041", "name": "Pâte à pizza", "category": "Boulangerie", "unit": "unité", "costPerUnit": 1.1, "stock": 30, "threshold": 15, "supplier": "Boulangerie Saint-Louis" }
+  ],
+  "recipes": [
+    {
+      "id": "rec_001",
+      "name": "Salade César",
+      "category": "Entrée",
+      "price": 13.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_004", "quantity": 3 },
+        { "ingredientId": "ing_021", "quantity": 60 },
+        { "ingredientId": "ing_025", "quantity": 2 },
+        { "ingredientId": "ing_032", "quantity": 80 },
+        { "ingredientId": "ing_007", "quantity": 1 },
+        { "ingredientId": "ing_003", "quantity": 10 },
+        { "ingredientId": "ing_040", "quantity": 1 },
+        { "ingredientId": "ing_016", "quantity": 100 }
+      ]
+    },
+    {
+      "id": "rec_002",
+      "name": "Soupe à l'oignon gratinée",
+      "category": "Entrée",
+      "price": 11.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_002", "quantity": 800 },
+        { "ingredientId": "ing_020", "quantity": 60 },
+        { "ingredientId": "ing_034", "quantity": 1200 },
+        { "ingredientId": "ing_033", "quantity": 150 },
+        { "ingredientId": "ing_040", "quantity": 1 },
+        { "ingredientId": "ing_022", "quantity": 160 },
+        { "ingredientId": "ing_026", "quantity": 20 },
+        { "ingredientId": "ing_036", "quantity": 5 },
+        { "ingredientId": "ing_037", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "rec_003",
+      "name": "Velouté de champignons",
+      "category": "Entrée",
+      "price": 10.5,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_006", "quantity": 500 },
+        { "ingredientId": "ing_002", "quantity": 150 },
+        { "ingredientId": "ing_020", "quantity": 40 },
+        { "ingredientId": "ing_019", "quantity": 200 },
+        { "ingredientId": "ing_034", "quantity": 800 },
+        { "ingredientId": "ing_003", "quantity": 10 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_004",
+      "name": "Bruschetta tomate et basilic",
+      "category": "Entrée",
+      "price": 9.5,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_040", "quantity": 1 },
+        { "ingredientId": "ing_001", "quantity": 500 },
+        { "ingredientId": "ing_008", "quantity": 15 },
+        { "ingredientId": "ing_003", "quantity": 10 },
+        { "ingredientId": "ing_032", "quantity": 40 },
+        { "ingredientId": "ing_022", "quantity": 100 },
+        { "ingredientId": "ing_036", "quantity": 3 }
+      ]
+    },
+    {
+      "id": "rec_005",
+      "name": "Crevettes à l'ail",
+      "category": "Entrée",
+      "price": 15.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_017", "quantity": 500 },
+        { "ingredientId": "ing_003", "quantity": 20 },
+        { "ingredientId": "ing_020", "quantity": 40 },
+        { "ingredientId": "ing_007", "quantity": 1 },
+        { "ingredientId": "ing_032", "quantity": 30 },
+        { "ingredientId": "ing_036", "quantity": 3 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_006",
+      "name": "Salade du jardin",
+      "category": "Entrée",
+      "price": 8.5,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_010", "quantity": 200 },
+        { "ingredientId": "ing_001", "quantity": 300 },
+        { "ingredientId": "ing_009", "quantity": 200 },
+        { "ingredientId": "ing_032", "quantity": 50 },
+        { "ingredientId": "ing_007", "quantity": 1 },
+        { "ingredientId": "ing_036", "quantity": 2 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_007",
+      "name": "Spaghetti sauce à la viande",
+      "category": "Plat",
+      "price": 16.5,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_027", "quantity": 400 },
+        { "ingredientId": "ing_013", "quantity": 400 },
+        { "ingredientId": "ing_035", "quantity": 500 },
+        { "ingredientId": "ing_002", "quantity": 150 },
+        { "ingredientId": "ing_003", "quantity": 10 },
+        { "ingredientId": "ing_032", "quantity": 30 },
+        { "ingredientId": "ing_021", "quantity": 40 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_008",
+      "name": "Pâtes Alfredo au poulet",
+      "category": "Plat",
+      "price": 18.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_027", "quantity": 400 },
+        { "ingredientId": "ing_011", "quantity": 400 },
+        { "ingredientId": "ing_019", "quantity": 400 },
+        { "ingredientId": "ing_021", "quantity": 80 },
+        { "ingredientId": "ing_020", "quantity": 30 },
+        { "ingredientId": "ing_003", "quantity": 10 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_009",
+      "name": "Burger classique",
+      "category": "Plat",
+      "price": 15.5,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_039", "quantity": 4 },
+        { "ingredientId": "ing_013", "quantity": 600 },
+        { "ingredientId": "ing_023", "quantity": 100 },
+        { "ingredientId": "ing_004", "quantity": 0.5 },
+        { "ingredientId": "ing_001", "quantity": 200 },
+        { "ingredientId": "ing_002", "quantity": 100 },
+        { "ingredientId": "ing_016", "quantity": 120 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_010",
+      "name": "Poulet rôti et pommes de terre",
+      "category": "Plat",
+      "price": 19.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_012", "quantity": 1000 },
+        { "ingredientId": "ing_005", "quantity": 800 },
+        { "ingredientId": "ing_009", "quantity": 400 },
+        { "ingredientId": "ing_032", "quantity": 40 },
+        { "ingredientId": "ing_003", "quantity": 15 },
+        { "ingredientId": "ing_007", "quantity": 1 },
+        { "ingredientId": "ing_020", "quantity": 30 },
+        { "ingredientId": "ing_036", "quantity": 6 },
+        { "ingredientId": "ing_037", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "rec_011",
+      "name": "Bavette de boeuf et frites maison",
+      "category": "Plat",
+      "price": 28.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_014", "quantity": 800 },
+        { "ingredientId": "ing_005", "quantity": 1000 },
+        { "ingredientId": "ing_032", "quantity": 60 },
+        { "ingredientId": "ing_020", "quantity": 40 },
+        { "ingredientId": "ing_003", "quantity": 10 },
+        { "ingredientId": "ing_036", "quantity": 6 },
+        { "ingredientId": "ing_037", "quantity": 4 }
+      ]
+    },
+    {
+      "id": "rec_012",
+      "name": "Saumon grillé, riz et épinards",
+      "category": "Plat",
+      "price": 24.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_015", "quantity": 720 },
+        { "ingredientId": "ing_028", "quantity": 300 },
+        { "ingredientId": "ing_010", "quantity": 300 },
+        { "ingredientId": "ing_007", "quantity": 1 },
+        { "ingredientId": "ing_020", "quantity": 30 },
+        { "ingredientId": "ing_032", "quantity": 20 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_013",
+      "name": "Risotto aux champignons",
+      "category": "Plat",
+      "price": 19.5,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_028", "quantity": 320 },
+        { "ingredientId": "ing_006", "quantity": 400 },
+        { "ingredientId": "ing_002", "quantity": 100 },
+        { "ingredientId": "ing_033", "quantity": 150 },
+        { "ingredientId": "ing_034", "quantity": 1000 },
+        { "ingredientId": "ing_021", "quantity": 80 },
+        { "ingredientId": "ing_020", "quantity": 40 },
+        { "ingredientId": "ing_032", "quantity": 20 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_014",
+      "name": "Pizza Margherita",
+      "category": "Plat",
+      "price": 16.0,
+      "portions": 1,
+      "ingredients": [
+        { "ingredientId": "ing_041", "quantity": 1 },
+        { "ingredientId": "ing_035", "quantity": 80 },
+        { "ingredientId": "ing_022", "quantity": 120 },
+        { "ingredientId": "ing_008", "quantity": 5 },
+        { "ingredientId": "ing_032", "quantity": 10 }
+      ]
+    },
+    {
+      "id": "rec_015",
+      "name": "Pizza bacon et champignons",
+      "category": "Plat",
+      "price": 18.5,
+      "portions": 1,
+      "ingredients": [
+        { "ingredientId": "ing_041", "quantity": 1 },
+        { "ingredientId": "ing_035", "quantity": 80 },
+        { "ingredientId": "ing_022", "quantity": 120 },
+        { "ingredientId": "ing_016", "quantity": 50 },
+        { "ingredientId": "ing_006", "quantity": 60 }
+      ]
+    },
+    {
+      "id": "rec_016",
+      "name": "Quiche lorraine",
+      "category": "Plat",
+      "price": 13.5,
+      "portions": 6,
+      "ingredients": [
+        { "ingredientId": "ing_026", "quantity": 250 },
+        { "ingredientId": "ing_020", "quantity": 125 },
+        { "ingredientId": "ing_025", "quantity": 5 },
+        { "ingredientId": "ing_019", "quantity": 300 },
+        { "ingredientId": "ing_018", "quantity": 200 },
+        { "ingredientId": "ing_016", "quantity": 200 },
+        { "ingredientId": "ing_023", "quantity": 100 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_017",
+      "name": "Pâtes aux crevettes et à l'ail",
+      "category": "Plat",
+      "price": 22.0,
+      "portions": 4,
+      "ingredients": [
+        { "ingredientId": "ing_027", "quantity": 400 },
+        { "ingredientId": "ing_017", "quantity": 400 },
+        { "ingredientId": "ing_003", "quantity": 15 },
+        { "ingredientId": "ing_032", "quantity": 50 },
+        { "ingredientId": "ing_033", "quantity": 100 },
+        { "ingredientId": "ing_007", "quantity": 1 },
+        { "ingredientId": "ing_008", "quantity": 10 },
+        { "ingredientId": "ing_036", "quantity": 4 },
+        { "ingredientId": "ing_037", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_018",
+      "name": "Mousse au chocolat",
+      "category": "Dessert",
+      "price": 9.0,
+      "portions": 6,
+      "ingredients": [
+        { "ingredientId": "ing_030", "quantity": 200 },
+        { "ingredientId": "ing_025", "quantity": 4 },
+        { "ingredientId": "ing_019", "quantity": 250 },
+        { "ingredientId": "ing_029", "quantity": 40 }
+      ]
+    },
+    {
+      "id": "rec_019",
+      "name": "Tiramisu",
+      "category": "Dessert",
+      "price": 10.0,
+      "portions": 6,
+      "ingredients": [
+        { "ingredientId": "ing_024", "quantity": 500 },
+        { "ingredientId": "ing_025", "quantity": 4 },
+        { "ingredientId": "ing_029", "quantity": 100 },
+        { "ingredientId": "ing_038", "quantity": 40 },
+        { "ingredientId": "ing_031", "quantity": 200 }
+      ]
+    },
+    {
+      "id": "rec_020",
+      "name": "Gâteau au chocolat",
+      "category": "Dessert",
+      "price": 8.5,
+      "portions": 8,
+      "ingredients": [
+        { "ingredientId": "ing_026", "quantity": 200 },
+        { "ingredientId": "ing_029", "quantity": 200 },
+        { "ingredientId": "ing_030", "quantity": 200 },
+        { "ingredientId": "ing_020", "quantity": 150 },
+        { "ingredientId": "ing_025", "quantity": 4 }
+      ]
+    },
+    {
+      "id": "rec_021",
+      "name": "Crêpes sucre et citron",
+      "category": "Dessert",
+      "price": 7.5,
+      "portions": 6,
+      "ingredients": [
+        { "ingredientId": "ing_026", "quantity": 250 },
+        { "ingredientId": "ing_018", "quantity": 500 },
+        { "ingredientId": "ing_025", "quantity": 3 },
+        { "ingredientId": "ing_020", "quantity": 40 },
+        { "ingredientId": "ing_029", "quantity": 60 },
+        { "ingredientId": "ing_007", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "rec_022",
+      "name": "Café au lait",
+      "category": "Boisson",
+      "price": 4.5,
+      "portions": 1,
+      "ingredients": [
+        { "ingredientId": "ing_038", "quantity": 18 },
+        { "ingredientId": "ing_018", "quantity": 200 }
+      ]
+    },
+    {
+      "id": "rec_023",
+      "name": "Chocolat chaud",
+      "category": "Boisson",
+      "price": 5.0,
+      "portions": 1,
+      "ingredients": [
+        { "ingredientId": "ing_030", "quantity": 40 },
+        { "ingredientId": "ing_018", "quantity": 250 },
+        { "ingredientId": "ing_029", "quantity": 5 }
+      ]
+    }
+  ]
+}

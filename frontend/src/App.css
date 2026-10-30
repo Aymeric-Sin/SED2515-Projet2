@@ -1,0 +1,470 @@
+/*
+ * MiseEnPlace (frontend) — Styles de l'application.
+ */
+
+:root {
+  --bg: #faf6f0;
+  --surface: #ffffff;
+  --ink: #2b2118;
+  --muted: #6b5d50;
+  --line: #e6dccf;
+  --accent: #b4411c;
+  --accent-dark: #8f3213;
+  --good: #2f7d4f;
+  --good-bg: #e3f3ea;
+  --warn: #9a6200;
+  --warn-bg: #fff1d6;
+  --bad: #b3261e;
+  --bad-bg: #fde4e1;
+  --radius: 10px;
+  --page-max: 1680px;
+  --font: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+/* La barre de défilement est toujours là : la page ne se décale plus d'un côté à l'autre. */
+html { overflow-y: scroll; }
+
+body {
+  margin: 0;
+  /* Fond discret : petits points dans les marges, de chaque côté de la colonne centrale. */
+  background: radial-gradient(circle at 1px 1px, rgba(180, 65, 28, 0.16) 1.2px, transparent 0) 0 0 / 24px 24px, #f1e9dd;
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.5;
+}
+
+h1 { font-size: 1.8rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+a { color: var(--accent-dark); }
+a:hover { color: var(--accent); }
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* En-tête : fixe en haut de la page (ordinateur et mobile) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(43, 33, 24, 0.25);
+}
+.site-header-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-decoration: none;
+}
+.brand:hover { color: #fff; }
+.brand-logo { width: 32px; height: 32px; }
+
+.header-right { display: flex; align-items: center; gap: 0.5rem; }
+
+.main-nav {
+  display: flex;
+  gap: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.nav-link {
+  color: #e9dfd2;
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+}
+.nav-link:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.nav-link.active { background: var(--accent); color: #fff; }
+
+/* Bouton burger (trois barres qui deviennent une croix) */
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.burger:hover { background: rgba(255, 255, 255, 0.12); }
+.burger:focus-visible { outline: 3px solid #f0a37f; outline-offset: 2px; }
+.burger span {
+  display: block;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.2s;
+}
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Ordinateur : les liens apparaissent / disparaissent dans la barre */
+@media (min-width: 768px) {
+  .main-nav { max-width: 520px; opacity: 1; transition: max-width 0.3s ease, opacity 0.25s ease, visibility 0s; }
+  .main-nav:not(.open) {
+    max-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-width 0.3s ease, opacity 0.2s ease, visibility 0s linear 0.3s;
+  }
+}
+
+/* Mobile : les liens s'ouvrent dans un panneau sous la barre, comme une porte */
+@media (max-width: 767px) {
+  .site-header-inner { padding: 0.5rem 1rem; }
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--ink);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 14px rgba(43, 33, 24, 0.3);
+    max-height: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .main-nav.open {
+    max-height: 320px;
+    visibility: visible;
+    padding: 0.4rem 0.75rem 0.75rem;
+    transition: max-height 0.3s ease, visibility 0s;
+  }
+  .nav-link { padding: 0.85rem 0.9rem; font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-nav, .burger span { transition: none !important; }
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 2.5rem;
+  background: var(--bg);
+  border-inline: 1px solid var(--line);
+  box-shadow: 0 0 30px rgba(43, 33, 24, 0.06);
+}
+.site-footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 1rem; background: var(--bg); border-top: 1px solid var(--line); max-width: var(--page-max); width: 100%; margin: 0 auto; border-inline: 1px solid var(--line); }
+
+.page { display: flex; flex-direction: column; gap: 1.25rem; }
+.page-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.hint { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.empty, .loading { color: var(--muted); padding: 1rem 0; }
+
+/* Cartes et chiffres clés */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+.card-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.stack { display: flex; flex-direction: column; gap: 1rem; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.75rem; }
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.stat-value { font-size: 1.6rem; font-weight: 700; }
+.stat-label { color: var(--muted); font-size: 0.85rem; }
+.stat-good { border-left-color: var(--good); }
+.stat-warn { border-left-color: var(--warn); }
+.stat-bad { border-left-color: var(--bad); }
+
+/* Barres en CSS */
+.bars { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+.bars { --label-w: 20rem; --text-w: 9.5rem; }
+.bars-compact { --label-w: 10rem; --text-w: 4.5rem; gap: 1.4rem; }
+.bar-row { display: grid; grid-template-columns: minmax(0, var(--label-w)) 1fr var(--text-w); align-items: center; gap: 0.75rem; }
+.bar-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { background: #efe7dc; border-radius: 999px; height: 14px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; }
+.bar-good { background: var(--good); }
+.bar-warn { background: #d99a1f; }
+.bar-bad { background: var(--bad); }
+.bar-text { font-size: 0.85rem; color: var(--muted); white-space: nowrap; text-align: right; }
+
+.chip-list { list-style: none; padding: 0; margin: 0.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+
+/* Tableaux */
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.card .table-wrap { border: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+th, td { padding: 0.55rem 0.75rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+thead th { background: #f3ebe0; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+tbody th { font-weight: 600; }
+tbody tr:last-child > * { border-bottom: 0; }
+tfoot th, tfoot td { border-top: 2px solid var(--line); font-weight: 700; }
+.num { text-align: right; white-space: nowrap; }
+.actions { white-space: nowrap; }
+.actions .btn + .btn { margin-left: 0.4rem; }
+.row-bas { background: #fffaf0; }
+.row-rupture { background: #fff3f1; }
+.tone-good { color: var(--good); font-weight: 600; }
+.tone-warn { color: var(--warn); font-weight: 600; }
+.tone-bad { color: var(--bad); font-weight: 600; }
+
+/* Badges */
+.badge { display: inline-block; white-space: nowrap; padding: 0.1rem 0.6rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+.badge-ok { background: var(--good-bg); color: var(--good); }
+.badge-bas { background: var(--warn-bg); color: var(--warn); }
+.badge-rupture { background: var(--bad-bg); color: var(--bad); }
+
+/* Filtres */
+.filters { --control-h: 2.4rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: flex-end; }
+/* Champs, case à cocher et bouton ont la même hauteur : tout est centré sur la même ligne. */
+.filters input[type='search'], .filters select { height: var(--control-h); }
+.filters label { display: flex; flex-direction: column; font-size: 0.85rem; color: var(--muted); gap: 0.2rem; }
+.filters .btn { height: var(--control-h); padding-block: 0; display: inline-flex; align-items: center; justify-content: center; }
+.btn-add { margin-left: auto; }
+.filters label.checkbox { flex-direction: row; align-items: center; gap: 0.4rem; color: var(--ink); height: var(--control-h); }
+
+input, select {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #cdbfae;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  min-width: 11rem;
+}
+input[type='checkbox'] { min-width: 0; }
+input:focus-visible, select:focus-visible, .btn:focus-visible, a:focus-visible {
+  outline: 3px solid #f0a37f;
+  outline-offset: 2px;
+}
+
+/* Boutons */
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+.btn-secondary { background: #fff; color: var(--ink); border-color: #cdbfae; }
+.btn-secondary:hover { background: #f3ebe0; }
+.btn-danger { background: #fff; color: var(--bad); border-color: #e3b1ac; }
+.btn-danger:hover { background: var(--bad-bg); }
+.btn-small { padding: 0.25rem 0.6rem; font-size: 0.85rem; }
+
+/* Messages */
+.alert { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.6rem 1rem; border-radius: var(--radius); }
+.alert-error { background: var(--bad-bg); color: var(--bad); border: 1px solid #efb9b4; }
+.alert-success { background: var(--good-bg); color: var(--good); border: 1px solid #b9dcc8; }
+
+/* Formulaire */
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.75rem 1rem; margin: 0.75rem 0; }
+.form-field { display: flex; flex-direction: column; gap: 0.2rem; }
+.form-field label { font-size: 0.85rem; font-weight: 600; }
+.form-field input, .form-field select { min-width: 0; width: 100%; }
+.form-field.has-error input { border-color: var(--bad); background: #fff8f7; }
+.field-error { color: var(--bad); font-size: 0.82rem; }
+.form-actions { display: flex; gap: 0.5rem; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 1.5rem; }
+  .bar-row { grid-template-columns: 1fr; gap: 0.2rem; }
+  .bar-label { white-space: normal; }
+  .bar-text { text-align: left; }
+
+  /* Filtres : un champ par ligne (Catégorie sous Rechercher) */
+  .filters { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .filters input[type='search'], .filters select { width: 100%; min-width: 0; }
+  .filters label.checkbox { height: auto; }
+  /* Bouton « Ajouter » : plus haut, pas plus large */
+  .filters .btn-add { margin-left: 0; align-self: flex-start; height: auto; padding: 0.85rem 1.6rem; font-size: 1.05rem; }
+}
+
+/* Recettes à surveiller (tableau de bord) */
+.chip { display: inline-block; padding: 0.25rem 0.9rem; border-radius: 999px; text-decoration: none; font-weight: 600; border: 1px solid transparent; }
+.chip-impossible { background: var(--bad-bg); color: var(--bad); border-color: #efb9b4; }
+.chip-bas { background: var(--warn-bg); color: var(--warn); border-color: #ecd199; }
+.chip:hover { filter: brightness(0.96); }
+.chip-dot { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 50%; vertical-align: -0.05rem; }
+.chip-dot.chip-impossible { background: var(--bad); border: 0; }
+.chip-dot.chip-bas { background: #e0a21a; border: 0; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+
+/* Infobulles */
+.tip { display: inline-block; cursor: help; }
+.tip:focus-visible { outline: 3px solid #f0a37f; outline-offset: 2px; border-radius: 6px; }
+.tip-box {
+  position: fixed;
+  z-index: 100;
+  width: max-content;
+  max-width: min(380px, calc(100vw - 16px));
+  transform: translate(-50%, -100%);
+  background: var(--ink);
+  color: #fff;
+  padding: 0.8rem 1.05rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s;
+}
+.tip-box.below { transform: translate(-50%, 0); }
+.tip-box.visible { visibility: visible; opacity: 1; }
+.tip-box strong { display: block; margin-bottom: 0.3rem; font-size: 1.05rem; }
+.tip-line { display: block; margin-top: 0.35rem; }
+.tip-list { margin: 0.25rem 0 0; padding-left: 1.2rem; }
+.tip-list li + li { margin-top: 0.2rem; }
+
+.warning-wrap { display: inline-flex; vertical-align: middle; }
+.warning-icon { display: block; }
+.alert-col { width: 2.5rem; text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.alert-warn { background: var(--warn-bg); color: #5c3b00; border: 1px solid #ecd199; display: flex; gap: 1rem; padding: 0.6rem 1rem; border-radius: var(--radius); }
+.alert-warn .tip-list, .alert-error .tip-list { margin: 0.1rem 0 0; padding-left: 1.1rem; }
+.alert strong { display: block; }
+.badge-inline { margin-left: 0.5rem; }
+.badge-limit { margin-left: 0.5rem; background: var(--warn-bg); color: var(--warn); }
+
+/* Recherche par ingrédient : ingrédients trouvés sous le nom de la recette */
+.match-hint { display: block; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+
+/* Bouton g/ml <-> kg/L : même allure en pilule que les liens du tableau de bord */
+.unit-toggle { display: inline-flex; padding: 3px; gap: 2px; border-radius: 999px; background: #f6e9dd; border: 1px solid #ecd2bd; height: var(--control-h, 2.4rem); box-sizing: border-box; }
+.unit-toggle button { font: inherit; font-size: 0.88rem; font-weight: 600; min-width: 4.2rem; padding: 0 0.9rem; border: 0; border-radius: 999px; background: transparent; color: var(--accent-dark); cursor: pointer; transition: background 0.15s, color 0.15s; }
+.unit-toggle button:hover { background: #f0d9c6; }
+.unit-toggle button.active, .unit-toggle button.active:hover { background: var(--accent); color: #fff; }
+.unit-toggle button:focus-visible { outline: 3px solid #f0a37f; outline-offset: 1px; }
+.card-tools .link-pill { display: inline-flex; align-items: center; height: var(--control-h, 2.4rem); padding-block: 0; }
+.card-tools { --control-h: 2.4rem; }
+
+/* Tableaux à colonnes fixes : les colonnes ne bougent pas quand le contenu change */
+.fixed-table { table-layout: fixed; min-width: 960px; }
+.fixed-table th, .fixed-table td { overflow-wrap: anywhere; }
+.table-wrap { transition: opacity 0.15s; }
+.table-wrap.is-busy { opacity: 0.6; }
+.actions { white-space: normal; }
+
+/* Tableau de bord : deux colonnes sur grand écran, une seule sur petit écran */
+.dash-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-items: start; }
+.dash-row > .card, .dash-row > .stack { min-width: 0; }
+.dash-row .stack { gap: 1.25rem; }
+@media (min-width: 1280px) {
+  .dash-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.card { padding: 1.25rem 1.5rem; }
+.card-tools { display: inline-flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.card-header { align-items: center; flex-wrap: wrap; }
+
+/* Liens « pilule » : même allure que les recettes à surveiller */
+.link-pill {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  background: #f6e9dd;
+  border: 1px solid #ecd2bd;
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.link-pill:hover { background: #f0d9c6; color: var(--accent-dark); }
+@media (max-width: 640px) { .link-pill { white-space: normal; border-radius: 14px; } }
+
+/* Lien-bouton (ex. « Ajouter une recette ») */
+a.btn, a.btn:hover { color: #fff; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.btn:disabled { cursor: not-allowed; }
+
+/* Champ avec propositions (catégorie, fournisseur) */
+.phonetic { position: relative; display: flex; flex-direction: column; gap: 0.2rem; }
+.suggestions { position: absolute; top: 100%; left: 0; right: 0; z-index: 20; list-style: none; margin: 2px 0 0; padding: 0.25rem; background: #fff; border: 1px solid #cdbfae; border-radius: 8px; box-shadow: 0 6px 18px rgba(43, 33, 24, 0.18); }
+.suggestions li { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; }
+.suggestions li:hover, .suggestions li.active { background: #f6e9dd; }
+.sounds-like { color: var(--muted); font-size: 0.78rem; font-style: italic; }
+.field-hint { color: var(--muted); font-size: 0.8rem; }
+.link-button { font: inherit; font-weight: 600; background: none; border: 0; padding: 0; color: var(--accent-dark); text-decoration: underline; cursor: pointer; }
+
+/* Formulaire de recette */
+.recipe-form h2 { margin-top: 1rem; }
+.line-rows { display: flex; flex-direction: column; gap: 0.75rem; margin: 0.75rem 0; }
+.line-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 0.75rem; align-items: end; }
+.line-row .btn { height: 2.4rem; }
+a.btn-secondary, a.btn-secondary:hover { color: var(--ink); }
+@media (max-width: 640px) { .line-row { grid-template-columns: 1fr 1fr; } .line-row .btn { grid-column: 1 / -1; justify-self: start; } }
+
+.legend-item { white-space: nowrap; }
+.stock-table .actions { white-space: nowrap; }
+
+/* Largeurs fixes : le menu « Catégorie » ne s'allonge plus quand la liste se charge */
+.filters select { width: 14rem; min-width: 0; }
+.filters input[type='search'] { width: 20rem; min-width: 0; }
+@media (max-width: 640px) { .filters select, .filters input[type='search'] { width: 100%; } }
+
+/* Ligne « nombre de résultats + légende » : même hauteur sur Recettes et Stock, tableaux alignés */
+.list-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; min-height: 1.9rem; }
+.list-meta .hint { margin: 0; }
+
+/* Boutons « Ajouter » : même taille sur Recettes et Stock */
+.filters .btn-add { min-width: 13.5rem; }
+
+/* Tableau d'alertes du tableau de bord : pas de défilement horizontal, boutons éloignés du tableau */
+.fixed-table.alerts-table { min-width: 0; }
+.card-header { margin-bottom: 1rem; }
+
+.alerts-table th, .alerts-table td { overflow-wrap: break-word; }
+
+/* Ligne sous les filtres : même hauteur sur Stock et Recettes (tableaux alignés) */
+.list-meta { --control-h: 2.4rem; min-height: 2.4rem; }
+.checkbox-inline { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--ink); font-size: 0.93rem; }

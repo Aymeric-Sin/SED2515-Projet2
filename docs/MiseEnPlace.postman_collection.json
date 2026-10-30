@@ -1,0 +1,42 @@
+{
+  "info": {
+    "name": "MiseEnPlace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3001/api" }],
+  "item": [
+    { "name": "GET /recipes", "request": { "method": "GET", "url": "{{baseUrl}}/recipes?sort=margin&order=desc" } },
+    { "name": "GET /recipes/:id", "request": { "method": "GET", "url": "{{baseUrl}}/recipes/rec_004" } },
+    { "name": "GET /recipes/:id (404)", "request": { "method": "GET", "url": "{{baseUrl}}/recipes/rec_999" } },
+    { "name": "GET /ingredients", "request": { "method": "GET", "url": "{{baseUrl}}/ingredients?lowStock=true" } },
+    {
+      "name": "POST /ingredients",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Paprika fumé\",\n  \"category\": \"Épicerie\",\n  \"unit\": \"g\",\n  \"costPerUnit\": 0.05,\n  \"stock\": 300,\n  \"threshold\": 100,\n  \"supplier\": \"Grossiste Gatineau\"\n}" },
+        "url": "{{baseUrl}}/ingredients"
+      }
+    },
+    {
+      "name": "POST /ingredients (400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"name\": \"Test\", \"unit\": \"kg\" }" },
+        "url": "{{baseUrl}}/ingredients"
+      }
+    },
+    {
+      "name": "PUT /ingredients/:id",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"stock\": 2500 }" },
+        "url": "{{baseUrl}}/ingredients/ing_024"
+      }
+    },
+    { "name": "DELETE /ingredients/:id (409 si utilisé)", "request": { "method": "DELETE", "url": "{{baseUrl}}/ingredients/ing_001" } },
+    { "name": "GET /stats", "request": { "method": "GET", "url": "{{baseUrl}}/stats" } }
+  ]
+}
